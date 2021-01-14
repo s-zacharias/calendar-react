@@ -10,7 +10,7 @@ const SingleEvent = ({ id, event }) => {
         <Link to={`/events/edit/${id}`} className="ui button">
           Edit
         </Link>
-        <Link to={`/events/delete/${id}`} className="ui button negative">
+        <Link to={`/events/delete/${id}`} className="ui button delete-Event">
           Delete
         </Link>
       </div>

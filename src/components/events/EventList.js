@@ -21,7 +21,7 @@ class EventList extends React.Component {
   renderCreate() {
     return (
       <div style={{ textAlign: 'right' }}>
-        <Link to="/events/new" className="ui button primary">
+        <Link to="/events/new" className="ui button add-Event">
           Add Event
         </Link>
       </div>

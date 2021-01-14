@@ -51,11 +51,12 @@ export const editEvent = (id, { event, date, notes, type }) => async (
   });
 
   dispatch({ type: EDIT_EVENT, payload: response.data });
-  history.push('/events/show');
+  history.push('/');
 };
 
 export const deleteEvent = (id) => async (dispatch) => {
   await events.delete(`/events/${id}`);
 
   dispatch({ type: DELETE_EVENT, payload: id });
+  history.push('/');
 };

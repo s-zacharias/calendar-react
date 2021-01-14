@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Body from './Body';
-import './calendar.css';
 
 const Calendar = () => {
   const today = new Date();

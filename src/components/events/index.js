@@ -1,22 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createEvent } from '../../redux/actions';
-import NewEvent from './NewEvent';
-import './events.css';
-import DayEventDisplay from './DayEventDisplay';
+import EventList from './EventList';
 
-const EventsManager = ({ createEvent, events }) => {
+const DayEventDisplay = ({ dates }) => {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  const dateSplit = dates.day.split('-');
+  const year = dateSplit[0];
+  const month = months[dateSplit[1] - 1];
+  const day = dateSplit[2];
+
   return (
-    <div className="events-manager">
-      <DayEventDisplay />
-      <NewEvent
-        onFormSubmit={(e) => {
-          console.log(e);
-          //createEvent(e);
-        }}
-      />
+    <div className="day-event-display">
+      <h1>{`${dates.weekday}\n${month} ${day}, ${year}`}</h1>
+      <div className="ui section divider"></div>
+      <EventList selectedDay={dates.day} />
     </div>
   );
 };
 
-export default EventsManager;
+const mapStateToProps = (state) => {
+  return {
+    dates: state.dates,
+  };
+};
+
+export default connect(mapStateToProps)(DayEventDisplay);

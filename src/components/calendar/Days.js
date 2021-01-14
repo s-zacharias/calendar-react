@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { selectDay } from '../../redux/actions';
+import DayEventSummary from '../events/DayEventSummary';
 
 const Days = ({ today, date, month, year, firstDay, dates, selectDay }) => {
   const daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -69,10 +70,10 @@ const Days = ({ today, date, month, year, firstDay, dates, selectDay }) => {
           onClick={() => selectDay(date, weekday)}
         >
           <div className={`day-number ${type}`}>{d > 0 ? d : ''}</div>
+          <DayEventSummary date={date} />
         </div>
       );
     });
-  console.log(dates);
   return <div className="month">{getDaysOfMonth}</div>;
 };
 
